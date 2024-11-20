@@ -1,0 +1,83 @@
+Here’s a simple *Calculator* program in *Java* that allows users to perform basic arithmetic operations like addition, subtraction, multiplication, and division.
+
+### *Java Code for Calculator*
+
+java
+import java.util.Scanner;
+
+public class Calculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Welcome to the Java Calculator!");
+        
+        // Input: Get the first number
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+        
+        // Input: Get the operator
+        System.out.print("Enter operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+        
+        // Input: Get the second number
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+        
+        double result = 0;
+        boolean validOperation = true;
+        
+        // Perform the operation based on the operator
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error! Division by zero.");
+                    validOperation = false;
+                }
+                break;
+            default:
+                System.out.println("Invalid operator! Please use +, -, *, or /.");
+                validOperation = false;
+                break;
+        }
+        
+        // Display result if the operation was valid
+        if (validOperation) {
+            System.out.println("Result: " + result);
+        }
+        
+        scanner.close();
+    }
+}
+
+
+### *Example Output*:
+
+
+Welcome to the Java Calculator!
+Enter first number: 15
+Enter operator (+, -, *, /): +
+Enter second number: 10
+Result: 25.0
+
+
+### *Running the Program*:
+1. *Compile the Java Program*: 
+   bash
+   javac Calculator.java
+   
+
+2. *Run the Program*: 
+   bash
+   java Calculator
